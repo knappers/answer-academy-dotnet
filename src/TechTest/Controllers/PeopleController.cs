@@ -51,6 +51,7 @@ namespace TechTest.Controllers
             return this.NotFound();
         }
 
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, PersonUpdate personUpdate)
         {
@@ -63,16 +64,28 @@ namespace TechTest.Controllers
             // If null is returned from the PeopleRepository then a
             // NotFound should be returned.
 
-            Person person = PersonRepository.Get(id);
-
-            if (person == null)
+            // get the original person    
+            Person existingPerson = PersonRepository.Get(id);
+            // check we have them
+            if (existingPerson == null)
             {
                 return this.NotFound();
             }
+            
+            // The PersonRepository needs a Person, so create a new person with the updated details
+            Person updatedPerson = new Person() {
+                Id = existingPerson.Id,
+                FirstName = existingPerson.FirstName,
+                LastName = existingPerson.LastName,
+                Authorised = personUpdate.Authorised,
+                Enabled = personUpdate.Enabled,
+                Colours = personUpdate.Colours
+            };
 
-            Person updatedPerson = PersonRepository.Update(person);
+            // send the updated details to the Repository
+            var responce = PersonRepository.Update(updatedPerson);
 
-            return this.Ok(updatedPerson);
+            return this.Ok(responce);
         }
     }
 }
