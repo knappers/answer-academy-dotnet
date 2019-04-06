@@ -45,6 +45,6 @@ export class Person implements IPerson {
       if (lowercase === checkPalindrome) {
           return true;
       }
-        return false;
+      return false;
   }
 }

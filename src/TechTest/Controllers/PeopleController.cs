@@ -26,6 +26,7 @@ namespace TechTest.Controllers
             // of people from the PeopleRepository. If there are zero
             // people returned from PeopleRepository then an empty
             // JSON array should be returned.
+
             IEnumerable<Person> persons = new List<Person>();
             persons = PersonRepository.GetAll();
 
@@ -41,6 +42,7 @@ namespace TechTest.Controllers
             // from the PeopleRepository based on the id parameter.
             // If null is returned from the PeopleRepository with
             // the supplied id then a NotFound should be returned.
+
             var person = PersonRepository.Get(id);
 
             if (person != null)
@@ -50,7 +52,6 @@ namespace TechTest.Controllers
             // somethig went wrong
             return this.NotFound();
         }
-
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, PersonUpdate personUpdate)
@@ -71,9 +72,10 @@ namespace TechTest.Controllers
             {
                 return this.NotFound();
             }
-            
+
             // The PersonRepository needs a Person, so create a new person with the updated details
-            Person updatedPerson = new Person() {
+            Person person = new Person()
+            {
                 Id = existingPerson.Id,
                 FirstName = existingPerson.FirstName,
                 LastName = existingPerson.LastName,
@@ -83,7 +85,7 @@ namespace TechTest.Controllers
             };
 
             // send the updated details to the Repository
-            var responce = PersonRepository.Update(updatedPerson);
+            var responce = PersonRepository.Update(person);
 
             return this.Ok(responce);
         }

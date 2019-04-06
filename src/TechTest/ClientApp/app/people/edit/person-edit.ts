@@ -35,26 +35,24 @@ export class PersonEdit {
         return favouriteColour.id === checkBoxColour.id;
     }
 
-    async submit(person: Person) {
+    async submit(routerConfig: RouteConfig) {
+        this.routerConfig = routerConfig;
 
         // TODO: Step 7
         //
         // Implement the submit and save logic.
         // Send a JSON request to the API with the newly updated
         // this.person object. If the response is successful then
-        // the user should be navigated to the list page.        
+        // the user should be navigated to the list page.
 
-        this.http
-            .fetch('/people/update/', {
-                method: 'post',
-                body: json(person)
-            })
+        await this.http.fetch(`/people/${this.person.id}`, {
+            method: 'put',
+            body: json(this.person)
+        })
             .then(response => response.json())
+            .then(data => {console.log(data)})
             .then(savedPerson => {
-                this.router.navigate('/people/list');
-            })
-            .catch(error => {
-                this.router.navigate(`/people/${params.id}`)
+                this.router.navigate('/people');
             });
 
     }
@@ -62,6 +60,4 @@ export class PersonEdit {
     cancel() {
         this.router.navigate('people');
     }
-
 }
-
