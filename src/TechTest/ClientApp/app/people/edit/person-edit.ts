@@ -54,7 +54,6 @@ export class PersonEdit {
             .then(savedPerson => {
                 this.router.navigate('/people');
             });
-
     }
 
     cancel() {

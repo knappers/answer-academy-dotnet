@@ -5,11 +5,10 @@ import { IPerson } from '../interfaces/iperson';
 
 @autoinject
 export class PeopleList {
-
     constructor(private http: HttpClient) { }
   
 
-  heading = 'People';
+    heading = 'People';
 
   @bindable people: Person[] = [];
 

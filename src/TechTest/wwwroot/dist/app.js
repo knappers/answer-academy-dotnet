@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1b66a0cac2b321bd7adc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "49d77b651146e0ec14e9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -21229,7 +21229,7 @@ PeopleList = __decorate([
 /***/ "app/people/list/people-list.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n\r\n    <h2 class=\"title\">${heading}</h2>\r\n    <table class=\"table is-striped is-fullwidth\">\r\n        <thead>\r\n            <tr>\r\n                <th>Name</th>\r\n                <th>Palindrome</th>\r\n                <th>Authorised</th>\r\n                <th>Enabled</th>\r\n                <th>Colours</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n\r\n            <!--\r\n              TODO: Step 6\r\n              Add styles to Palindrome, Authorised and Enabled values.\r\n              When the value is Yes the text colour should be Green.\r\n              When the value is No the text colour should be Red.\r\n            -->\r\n            <tr repeat.for=\"person of people\" person.bind=\"person\">\r\n                <td><a class=\"is-link\" href=\"/people/${person.id}\">${person.fullName}</a></td>\r\n                <td css=\"colour: ${person.palindrome ? 'red' : 'green'}\">${person.palindrome ? 'Yes' : 'No'}</td>\r\n                <td css=\"colour: ${person.authorised ? 'red' : 'green'}\">${person.authorised ? 'Yes' : 'No'}</td>\r\n                <td css=\"colour: ${person.enabled ? 'red' : 'green'}\">${person.enabled ? 'Yes' : 'No'}</td>\r\n                <td>${person.colours | colourNames }</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n\r\n</template>\r\n";
+module.exports = "<template>\r\n\r\n    <h2 class=\"title\">${heading}</h2>\r\n    <table class=\"table is-striped is-fullwidth\">\r\n        <thead>\r\n            <tr>\r\n                <th>Name</th>\r\n                <th>Palindrome</th>\r\n                <th>Authorised</th>\r\n                <th>Enabled</th>\r\n                <th>Colours</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n\r\n            <!--\r\n                TODO: Step 6\r\n                Add styles to Palindrome, Authorised and Enabled values.\r\n                When the value is Yes the text colour should be Green.\r\n                When the value is No the text colour should be Red.\r\n            -->\r\n            <tr repeat.for=\"person of people\" person.bind=\"person\">\r\n                <td><a class=\"is-link\" href=\"/people/${person.id}\">${person.fullName}</a></td>\r\n                <td css=\"color:${person.palindrome ? 'green' : 'red'}\">${person.palindrome ? 'Yes' : 'No'}</td>\r\n                <td css=\"color:${person.authorised ? 'green' : 'red'}\">${person.authorised ? 'Yes' : 'No'}</td>\r\n                <td css=\"color:${person.enabled ? 'green' : 'red'}\">${person.enabled ? 'Yes' : 'No'}</td>\r\n                <td>${person.colours | colourNames }</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n\r\n</template>\r\n\r\n";
 
 /***/ }),
 
@@ -21272,28 +21272,6 @@ class ColourNamesValueConverter {
 }
 /* harmony export (immutable) */ __webpack_exports__["ColourNamesValueConverter"] = ColourNamesValueConverter;
 
-//    let sortedColours = colours.sort(this.compare)
-//    let sResult = '';
-//    for (let i = 0; i < sortedColours.length; i++) {
-//        if (i == 0) {
-//            sResult = sortedColours[i].name + ', ';
-//        }
-//        else {
-//            sResult = sResult + sortedColours[i].name + ', '
-//        }
-//    }
-//    return sResult;
-//}
-//private compare(a, b) {
-//    if (a.Name < b.Name) {
-//        return -1;
-//    }
-//    if (a.Name > b.Name) {
-//        return 1;
-//    }
-//    return 0;
-//}
-//}
 
 
 /***/ }),

@@ -38,29 +38,3 @@ export class ColourNamesValueConverter {
         return 0;
     }
 }
-    //    let sortedColours = colours.sort(this.compare)
-
-    //    let sResult = '';
-    //    for (let i = 0; i < sortedColours.length; i++) {
-    //        if (i == 0) {
-    //            sResult = sortedColours[i].name + ', ';
-    //        }
-    //        else {
-    //            sResult = sResult + sortedColours[i].name + ', '
-    //        }
-    //    }
-
-    //    return sResult;
-    //}
-
-    //private compare(a, b) {
-    //    if (a.Name < b.Name) {
-
-    //        return -1;
-    //    }
-    //    if (a.Name > b.Name) {
-    //        return 1;
-    //    }
-    //    return 0;
-    //}
-//}
